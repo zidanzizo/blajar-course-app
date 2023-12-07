@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
         children: [
           profileSection(),
           searchSection(),
-          continueLearningSection(),
+          continueLearningSection(context),
           browseTopicSection(),
           newComingSection(),
           popularTeacherSection(),
@@ -168,7 +168,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget continueLearningSection() {
+  Widget continueLearningSection(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
         bottom: 30,
@@ -188,84 +188,89 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 6,
           ),
-          Container(
-            height: 164,
-            width: double.infinity,
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: backgroundColor,
-            ),
-            child: Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Mastering Figma Auto Layout',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 20,
-                              fontWeight: bold,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed('/detail');
+            },
+            child: Container(
+              height: 164,
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: backgroundColor,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Mastering Figma Auto Layout',
+                              style: whiteTextStyle.copyWith(
+                                fontSize: 20,
+                                fontWeight: bold,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(
-                            height: 6,
-                          ),
-                          Text(
-                            'UI/UX Design',
-                            style: greyTextStyle,
-                          ),
-                        ],
+                            const SizedBox(
+                              height: 6,
+                            ),
+                            Text(
+                              'UI/UX Design',
+                              style: greyTextStyle,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      height: 80,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
+                      const SizedBox(
+                        width: 20,
                       ),
-                      child: Image.asset(
-                        'assets/img_course.png',
-                        fit: BoxFit.cover,
+                      Container(
+                        height: 80,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Image.asset(
+                          'assets/img_course.png',
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: LinearProgressIndicator(
-                        minHeight: 12,
-                        backgroundColor: greyColor,
-                        valueColor: AlwaysStoppedAnimation(primaryColor),
-                        value: 0.5,
-                        borderRadius: BorderRadius.circular(100),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: LinearProgressIndicator(
+                          minHeight: 12,
+                          backgroundColor: greyColor,
+                          valueColor: AlwaysStoppedAnimation(primaryColor),
+                          value: 0.5,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '11/69',
-                      style: whiteTextStyle.copyWith(
-                        fontFamily: semiBoldText,
+                      const SizedBox(
+                        width: 10,
                       ),
-                    )
-                  ],
-                )
-              ],
+                      Text(
+                        '11/69',
+                        style: whiteTextStyle.copyWith(
+                          fontFamily: semiBoldText,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ],

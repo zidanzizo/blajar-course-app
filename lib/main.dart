@@ -1,3 +1,4 @@
+import 'package:blajar_course_app/presentation/ui/detail_page.dart';
 import 'package:blajar_course_app/presentation/ui/main_page.dart';
 import 'package:blajar_course_app/presentation/ui/splash_page.dart';
 import 'package:blajar_course_app/shared/theme.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashPage(),
         '/main': (context) => const MainPage(),
+        '/detail': (context) => const DetailPage(),
       },
     );
   }
